@@ -11,5 +11,13 @@ void main() {
 
     for(Status status : nStatus){
         System.out.println(status.toString());
+
+        if (status instanceof Status.DamageOverTime){
+            System.out.println(((Status.DamageOverTime) status).init());
+        }
     }
+
+
+
+
 }

@@ -1,4 +1,4 @@
-public class Poison extends Status {
+public class Poison extends Status implements Status.DamageOverTime {
     private int damage;
     private double tick;
 
@@ -21,5 +21,10 @@ public class Poison extends Status {
     @Override
     public String toString() {
         return "Poison has been applied"+" to "+ target.GetName()+"!";
+    }
+
+    @Override
+    public String init(){
+        return "(Poison) Damaging " + target.GetName() + " Over "+tick+"s!";
     }
 }

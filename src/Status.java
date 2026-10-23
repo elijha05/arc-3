@@ -15,6 +15,10 @@ public abstract class Status {
     public abstract void ApplyStatus();
     public abstract String toString();
 
+    public interface DamageOverTime {
+        String init();
+    }
+
     public String GetName(){
         return name;
     }

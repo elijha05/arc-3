@@ -21,6 +21,8 @@ public class Enemy {
         return currentStatus;
     }
 
+
+
     public String GetName(){
         return name;
     }

@@ -1,6 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
+void main() throws IOException {
     Enemy normal = new Enemy("Normal", 100, 5);
     Status fire = new Fire(normal,7, 3, 1);
     Status chill = new Chill(normal,4);
@@ -25,6 +25,12 @@ void main() {
     System.out.println(chill.GetSlowFactor());
 
 
+    System.out.println(System.getProperty("user.dir"));
 
+    FileWriter writer = new FileWriter("save.txt");
+    for (Status v : nStatus) {
+        writer.write(v.toCSV() + "\n"); // one object per line
+    }
+    writer.close();
 
 }

@@ -14,6 +14,7 @@ public abstract class Status {
     public abstract double GetSlowFactor();
     public abstract void ApplyStatus();
     public abstract String toString();
+    public abstract String toCSV();
 
     public interface DamageOverTime {
         String init();

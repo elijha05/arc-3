@@ -18,4 +18,9 @@ public class Chill extends Status {
     public String toString() {
         return "Chill has been applied"+" to "+ target.GetName()+"!";
     }
+
+    @Override
+    public  String toCSV(){
+        return "Chill,"+target.GetName()+","+duration;
+    }
 }

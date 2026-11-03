@@ -3,7 +3,7 @@ public class Poison extends Status implements Status.DamageOverTime {
     private double tick;
 
     public Poison(Enemy target,int duration, int damage, double tick){
-        super("Fire", duration, target);
+        super("Poison", duration, target);
         this.damage = damage;
         this.tick = tick;
     }
@@ -26,5 +26,10 @@ public class Poison extends Status implements Status.DamageOverTime {
     @Override
     public String init(){
         return "(Poison) Damaging " + target.GetName() + " Over "+tick+"s!";
+    }
+
+    @Override
+    public  String toCSV(){
+        return "Poison,"+target.GetName()+","+duration+","+damage+","+tick;
     }
 }

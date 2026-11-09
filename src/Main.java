@@ -1,7 +1,7 @@
 import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-//push
+//pushee
 void main() throws IOException {
     Enemy normal = new Enemy("Normal", 100, 5);
     Status fire = new Fire(normal,7, 3, 1);

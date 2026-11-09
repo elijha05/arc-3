@@ -25,11 +25,6 @@ public class Fire extends Status implements Status.DamageOverTime {
 
     @Override
     public String init() {
-        return "(Burn) Damaging " + target.GetName() + " -" + damage + " Over "+tick+"s!";
-    }
-
-    @Override
-    public  String toCSV(){
-        return "Fire,"+target.GetName()+","+duration+","+damage+","+tick;
+        return "(Burn) Damaging " + target.GetName() + " Over "+tick+"s!";
     }
 }

@@ -41,28 +41,46 @@ void main() throws IOException {
         String line = fileScanner.nextLine();
         String[] parts = line.split(",");
 
-        String type = parts[0];
-        String target = parts[1];
-        int duration = Integer.parseInt(parts[2]);
-        int damage;
-        double tick;
-
-        if (parts.length > 3) {
-            damage = Integer.parseInt(parts[3]);
-            tick = Double.parseDouble(parts[4]);
-        } else {
-            damage = 0;
-            tick = 0;
+        if (parts.length < 3) {
+            System.out.println("Skipping malformed line: " + line);
+            continue;
         }
 
-        if (type.equals("Fire")){
-            roster.add(new Fire(new Enemy(target, 100, 50), duration, damage, tick));
-        } else if (type.equals("Poison")) {
-            roster.add(new Poison(new Enemy(target, 100, 50), duration, damage, tick));
-        } else if (type.equals("Chill")){
-            roster.add(new Chill(new Enemy(target, 100, 50), duration));
+        try {
+            String type = parts[0];
+            String target = parts[1];
+            int duration = Integer.parseInt(parts[2]);
+            int damage;
+            double tick;
+
+            if (parts.length > 3) {
+                damage = Integer.parseInt(parts[3]);
+                tick = Double.parseDouble(parts[4]);
+            } else {
+                damage = 0;
+                tick = 0;
+            }
+
+            if (type.equals("Fire")){
+                roster.add(new Fire(new Enemy(target, 100, 50), duration, damage, tick));
+            } else if (type.equals("Poison")) {
+                roster.add(new Poison(new Enemy(target, 100, 50), duration, damage, tick));
+            } else if (type.equals("Chill")){
+                roster.add(new Chill(new Enemy(target, 100, 50), duration));
+            } else {
+                System.out.println("Type: "+type+" does not exist");
+            }
+
+            System.out.println(roster);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error Reading: "+line+". Skipping bad line");
         }
 
-        System.out.println(roster);
+
+    }
+
+    for(Status v : roster){
+        System.out.println(v.GetName());
     }
 }
